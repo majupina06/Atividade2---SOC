@@ -18,6 +18,7 @@
 bash
 # 1. IPs únicos
 awk '{print $1}' access.log | sort | uniq
+Solução: 
 
 # 2. Contagem por IP
 awk '{print $1}' access.log | sort | uniq -c | sort -nr
@@ -46,6 +47,7 @@ admin123
 *Tarefas*:
 1. Remover duplicatas (case-insensitive)
 2. Remover espaços em branco no início e fim
+sed -e 's/^[ \t]*//' -e 's/[ \t]*$//' passwords.txt
 3. Converter tudo para minúsculas
 4. Mostrar apenas senhas com mais de 6 caracteres
 
