@@ -46,11 +46,15 @@ admin123
 
 *Tarefas*:
 1. Remover duplicatas (case-insensitive)
+sort passwords.txt 
+sort passwords.txt | uniq
 2. Remover espaços em branco no início e fim
 sed -e 's/^[ \t]*//' -e 's/[ \t]*$//' passwords.txt
 3. Converter tudo para minúsculas
-4. Mostrar apenas senhas com mais de 6 caracteres
+sed -e 's/^[ \t]*//' -e 's/[ \t]*$//' passwords.txt | tr '[:upper:]' '[:lower:]'
 
+4. Mostrar apenas senhas com mais de 6 caracteres
+sed 's/^[ \t]*//;s/[ \t]$//' passwords.txt | tr '[:upper:]' '[:lower:]' | sort | uniq | awk 'lenght($0) > 6'
 *Solução esperada*:
 bash
 # Limpar e filtrar senhas
